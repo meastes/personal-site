@@ -1,0 +1,13 @@
+.container {
+  height: 128px;
+}
+
+.avatar {
+  width: 256px;
+  height: 256px;
+
+  position: absolute;
+  top: -128px;
+  left: 50%;
+  margin-left: -128px;
+}

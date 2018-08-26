@@ -1,19 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGenerateClassName, jssPreset } from '@material-ui/core/styles';
+import { create } from 'jss';
+import React from 'react';
+import JssProvider from 'react-jss/lib/JssProvider';
+import Content from './components/Content';
+import Hero from './components/Hero';
+import SelfAvatar from './components/SelfAvatar';
 
-class App extends Component {
+// Ensures JSS is inserted first to allow overriding JSS styles
+const generateClassName = createGenerateClassName();
+const jss = create(jssPreset());
+jss.options.insertionPoint = document.getElementById('jss-insertion-point');
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <JssProvider jss={jss} generateClassName={generateClassName}>
+        <div>
+          <Hero />
+          <Content>
+            <SelfAvatar />
+          </Content>
+        </div>
+      </JssProvider>
     );
   }
 }
