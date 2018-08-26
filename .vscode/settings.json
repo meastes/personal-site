@@ -13,7 +13,7 @@
   "[javascriptreact]": {
     "editor.formatOnSave": true
   },
-  "[scss]": {
+  "[css]": {
     "editor.formatOnSave": true
   },
   "files.exclude": {
