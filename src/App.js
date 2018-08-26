@@ -5,6 +5,7 @@ import {
   jssPreset,
   MuiThemeProvider,
 } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import { create } from 'jss';
 import React from 'react';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -29,8 +30,12 @@ const App = () => (
     <MuiThemeProvider theme={theme}>
       <Hero />
       <MainContent avatar={<SelfAvatar />}>
-        <h1>Mike Eastes</h1>
-        <h2>Software Engineer</h2>
+        <Typography variant="display1" component="h1" gutterBottom>
+          Mike Eastes
+        </Typography>
+        <Typography variant="button" component="h2" gutterBottom>
+          Software Engineer
+        </Typography>
         <DetailedContent />
       </MainContent>
     </MuiThemeProvider>
