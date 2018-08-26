@@ -1,4 +1,10 @@
-import { createGenerateClassName, jssPreset } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import {
+  createGenerateClassName,
+  createMuiTheme,
+  jssPreset,
+  MuiThemeProvider,
+} from '@material-ui/core/styles';
 import { create } from 'jss';
 import React from 'react';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -12,16 +18,22 @@ const generateClassName = createGenerateClassName();
 const jss = create(jssPreset());
 jss.options.insertionPoint = document.getElementById('jss-insertion-point');
 
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+  },
+});
+
 const App = () => (
   <JssProvider jss={jss} generateClassName={generateClassName}>
-    <div>
+    <MuiThemeProvider theme={theme}>
       <Hero />
       <MainContent avatar={<SelfAvatar />}>
         <h1>Mike Eastes</h1>
         <h2>Software Engineer</h2>
         <DetailedContent />
       </MainContent>
-    </div>
+    </MuiThemeProvider>
   </JssProvider>
 );
 
